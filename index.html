@@ -3,62 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToolsAI - Tools Online Gratis</title>
+    <title>ToolsAI - Kumpulan Tools Online Gratis & Praktis</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f9;
-            color: #333;
-            text-align: center;
-            padding: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8fafc;
+            color: #334155;
             margin: 0;
+            padding: 20px;
         }
-        .container {
-            max-width: 650px;
-            margin: auto;
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        .header {
+            text-align: center;
+            padding: 40px 20px;
         }
         h1 {
-            font-size: 36px;
-            color: #2c3e50;
+            font-size: 38px;
+            color: #1e293b;
             margin-bottom: 10px;
         }
-        p {
+        p.subtitle {
             font-size: 18px;
-            color: #555;
-            line-height: 1.6;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 10px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: left;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #0f172a;
+            font-size: 20px;
+        }
+        .card p {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.5;
         }
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 28px;
+            margin-top: 15px;
+            padding: 10px 18px;
             background: #4f46e5;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 6px;
+            font-size: 14px;
             font-weight: bold;
-            cursor: pointer;
         }
         .btn:hover {
             background: #4338ca;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #94a3b8;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="header">
         <h1>ToolsAI 🚀</h1>
-        <p>Kumpulan tools online gratis dan praktis yang dirancang untuk mempermudah berbagai kebutuhan harianmu.</p>
-        <a href="#" class="btn" onclick="sapa()">Mulai Eksplorasi</a>
+        <p class="subtitle">Kumpulan tools online gratis dan praktis untuk mempermudah tugas, kuliah, dan produktivitas harianmu.</p>
     </div>
 
+    <div class="grid-container">
+        <!-- Tool 1 -->
+        <div class="card">
+            <h3>📊 Kalkulator Nilai & IPK</h3>
+            <p>Hitung rata-rata nilai mata kuliah atau estimasi IPK semester dengan cepat dan akurat.</p>
+            <a href="#" class="btn" onclick="bukaTool('Kalkulator IPK')">Buka Tool</a>
+        </div>
+
+        <!-- Tool 2 -->
+        <div class="card">
+            <h3>🧮 Kalkulator Statistik</h3>
+            <p>Mencari nilai mean (rata-rata), median, dan modus dari data angka secara instan.</p>
+            <a href="#" class="btn" onclick="bukaTool('Kalkulator Statistik')">Buka Tool</a>
+        </div>
+
+        <!-- Tool 3 -->
+        <div class="card">
+            <h3>💰 Kalkulator Finansial</h3>
+            <p>Simulasi perhitungan cicilan pinjaman, anggaran bulanan, atau pengelolaan keuangan sederhana.</p>
+            <a href="#" class="btn" onclick="bukaTool('Kalkulator Finansial')">Buka Tool</a>
+        </div>
+
+        <!-- Tool 4 -->
+        <div class="card">
+            <h3>📝 Generator Teks & Bio</h3>
+            <p>Buat format tulisan otomatis atau draf teks profesional untuk berbagai keperluan.</p>
+            <a href="#" class="btn" onclick="bukaTool('Generator Teks')">Buka Tool</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 ToolsAI. Dibuat dengan HTML, CSS & JavaScript.
+    </footer>
+
     <script>
-        function sapa() {
-            alert("Halo! Selamat datang di ToolsAI. Tools pertama segera hadir! 🎉");
+        function bukaTool(namaTool) {
+            alert("Fitur " + namaTool + " sedang disiapkan dan akan segera bisa digunakan! 🚀");
         }
     </script>
 
