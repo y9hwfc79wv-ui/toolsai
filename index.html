@@ -14,66 +14,66 @@
         }
         .header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
         }
         h1 {
-            font-size: 38px;
+            font-size: 36px;
             color: #1e293b;
             margin-bottom: 10px;
         }
         p.subtitle {
-            font-size: 18px;
+            font-size: 16px;
             color: #64748b;
             max-width: 600px;
             margin: 0 auto;
         }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 10px;
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
         }
         .card {
             background: white;
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-align: left;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
         }
         .card h3 {
             margin-top: 0;
             color: #0f172a;
-            font-size: 20px;
         }
-        .card p {
-            color: #475569;
-            font-size: 14px;
-            line-height: 1.5;
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box;
         }
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 18px;
+        button {
             background: #4f46e5;
             color: white;
-            text-decoration: none;
+            border: none;
+            padding: 10px 20px;
             border-radius: 6px;
-            font-size: 14px;
+            cursor: pointer;
             font-weight: bold;
+            width: 100%;
         }
-        .btn:hover {
+        button:hover {
             background: #4338ca;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 12px;
+            background: #eef2ff;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #3730a3;
         }
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             color: #94a3b8;
             font-size: 14px;
         }
@@ -83,36 +83,41 @@
 
     <div class="header">
         <h1>ToolsAI 🚀</h1>
-        <p class="subtitle">Kumpulan tools online gratis dan praktis untuk mempermudah tugas, kuliah, dan produktivitas harianmu.</p>
+        <p class="subtitle">Kumpulan tools online gratis dan praktis untuk kebutuhan harianmu.</p>
     </div>
 
-    <div class="grid-container">
-        <!-- Tool 1 -->
+    <div class="container">
+        <!-- TOOL 1: Kalkulator IPK Sederhana -->
         <div class="card">
-            <h3>📊 Kalkulator Nilai & IPK</h3>
-            <p>Hitung rata-rata nilai mata kuliah atau estimasi IPK semester dengan cepat dan akurat.</p>
-            <a href="#" class="btn" onclick="bukaTool('Kalkulator IPK')">Buka Tool</a>
+            <h3>📊 Kalkulator IPK Sederhana</h3>
+            <label>Total SKS yang diambil:</label>
+            <input type="number" id="sks" placeholder="Contoh: 20">
+            <label>Total Bobot Nilai (Mutu):</label>
+            <input type="number" id="mutu" placeholder="Contoh: 65 (jika IPK 3.25 x 20 SKS)">
+            <button onclick="hitungIPK()">Hitung IPK</button>
+            <div class="result" id="hasilIPK">Hasil IPK akan muncul di sini</div>
         </div>
 
-        <!-- Tool 2 -->
+        <!-- TOOL 2: Kalkulator Statistik (Rata-rata / Mean) -->
         <div class="card">
-            <h3>🧮 Kalkulator Statistik</h3>
-            <p>Mencari nilai mean (rata-rata), median, dan modus dari data angka secara instan.</p>
-            <a href="#" class="btn" onclick="bukaTool('Kalkulator Statistik')">Buka Tool</a>
+            <h3>🧮 Kalkulator Rata-rata (Mean)</h3>
+            <label>Masukkan angka (pisahkan dengan koma):</label>
+            <input type="text" id="dataAngka" placeholder="Contoh: 80, 85, 90, 75">
+            <button onclick="hitungStatistik()">Hitung Rata-rata</button>
+            <div class="result" id="hasilStatistik">Hasil rata-rata akan muncul di sini</div>
         </div>
 
-        <!-- Tool 3 -->
+        <!-- TOOL 3: Kalkulator Simulasi Cicilan / Finansial -->
         <div class="card">
-            <h3>💰 Kalkulator Finansial</h3>
-            <p>Simulasi perhitungan cicilan pinjaman, anggaran bulanan, atau pengelolaan keuangan sederhana.</p>
-            <a href="#" class="btn" onclick="bukaTool('Kalkulator Finansial')">Buka Tool</a>
-        </div>
-
-        <!-- Tool 4 -->
-        <div class="card">
-            <h3>📝 Generator Teks & Bio</h3>
-            <p>Buat format tulisan otomatis atau draf teks profesional untuk berbagai keperluan.</p>
-            <a href="#" class="btn" onclick="bukaTool('Generator Teks')">Buka Tool</a>
+            <h3>💰 Kalkulator Cicilan Pinjaman</h3>
+            <label>Jumlah Pinjaman (Rp):</label>
+            <input type="number" id="pinjaman" placeholder="Contoh: 5000000">
+            <label>Bunga per Bulan (%):</label>
+            <input type="number" id="bunga" placeholder="Contoh: 2">
+            <label>Tenor / Jangka Waktu (Bulan):</label>
+            <input type="number" id="tenor" placeholder="Contoh: 12">
+            <button onclick="hitungCicilan()">Hitung Cicilan</button>
+            <div class="result" id="hasilCicilan">Estimasi cicilan per bulan akan muncul di sini</div>
         </div>
     </div>
 
@@ -121,8 +126,48 @@
     </footer>
 
     <script>
-        function bukaTool(namaTool) {
-            alert("Fitur " + namaTool + " sedang disiapkan dan akan segera bisa digunakan! 🚀");
+        // Logika Tool 1: IPK
+        function hitungIPK() {
+            let sks = parseFloat(document.getElementById('sks').value);
+            let mutu = parseFloat(document.getElementById('mutu').value);
+            if (!sks || !mutu || sks === 0) {
+                document.getElementById('hasilIPK').innerText = "Masukkan angka yang valid!";
+                return;
+            }
+            let ipk = mutu / sks;
+            document.getElementById('hasilIPK').innerText = "Estimasi IPK Anda: " + ipk.toFixed(2);
+        }
+
+        // Logika Tool 2: Statistik Rata-rata
+        function hitungStatistik() {
+            let input = document.getElementById('dataAngka').value;
+            if (!input) {
+                document.getElementById('hasilStatistik').innerText = "Masukkan data angka terlebih dahulu!";
+                return;
+            }
+            let arr = input.split(',').map(item => parseFloat(item.trim()));
+            if (arr.some(isNaN)) {
+                document.getElementById('hasilStatistik').innerText = "Format angka salah! Gunakan tanda koma (,).";
+                return;
+            }
+            let sum = arr.reduce((a, b) => a + b, 0);
+            let mean = sum / arr.length;
+            document.getElementById('hasilStatistik').innerText = "Nilai Rata-rata (Mean): " + mean.toFixed(2);
+        }
+
+        // Logika Tool 3: Finansial Cicilan
+        function hitungCicilan() {
+            let p = parseFloat(document.getElementById('pinjaman').value);
+            let b = parseFloat(document.getElementById('bunga').value) / 100;
+            let t = parseInt(document.getElementById('tenor').value);
+            if (!p || isNaN(b) || !t) {
+                document.getElementById('hasilCicilan').innerText = "Mohon isi semua kolom dengan benar!";
+                return;
+            }
+            let totalBunga = p * b * t;
+            let totalBayar = p + totalBunga;
+            let cicilanPerBulan = totalBayar / t;
+            document.getElementById('hasilCicilan').innerText = "Cicilan per Bulan: Rp " + cicilanPerBulan.toLocaleString('id-ID', {maximumFractionDigits: 0});
         }
     </script>
 
