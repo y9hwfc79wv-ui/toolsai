@@ -5,184 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToolsAI - Kumpulan Tools Online Gratis & Praktis</title>
     <style>
-        /* Reset & Dasar */
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --bg-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
         body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            /* Gradien latar belakang yang elegan */
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f1f5f9;
+            color: var(--text-main);
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            line-height: 1.6;
         }
-
-        /* Header Profesional */
-        .header {
+        /* Header Modern dengan Gradasi */
+        .hero {
+            background: var(--bg-gradient);
+            color: white;
             text-align: center;
-            padding: 80px 20px 50px 20px;
-            background: rgba(15, 23, 42, 0.5);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            padding: 60px 20px;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
         }
-        h1 {
-            font-size: 48px;
+        .hero h1 {
+            font-size: 42px;
+            margin: 0 0 10px 0;
             font-weight: 800;
-            color: #f8fafc;
-            margin: 0 0 15px 0;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
-        h1 span {
-            color: #fbbf24; /* Aksen warna emas */
-        }
-        p.subtitle {
+        .hero p {
             font-size: 18px;
-            color: #94a3b8;
             max-width: 650px;
             margin: 0 auto;
-            line-height: 1.6;
+            opacity: 0.95;
         }
-
         /* Container Utama */
         .container {
-            max-width: 1000px;
-            margin: 50px auto;
+            max-width: 850px;
+            margin: -30px auto 40px auto;
             padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            flex-grow: 1;
         }
-
-        /* Kartu Tool (Glassmorphism Style) */
+        /* Card Tools */
         .card {
-            /* Efek kartu transparan */
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 35px;
-            border-radius: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: transform 0.2s ease;
         }
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-3px);
         }
         .card h3 {
-            margin: 0 0 15px 0;
-            color: #f8fafc;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-top: 0;
+            color: var(--text-main);
+            font-size: 22px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
         }
-        .card p {
-            color: #cbd5e1;
-            font-size: 15px;
-            line-height: 1.6;
-            flex-grow: 1;
-            margin-bottom: 25px;
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 12px;
+            color: #475569;
         }
-
-        /* Input & Tombol */
-        input {
+        input, select {
             width: 100%;
-            padding: 15px;
-            margin: 8px 0 20px 0;
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 10px;
-            color: white;
-            font-size: 16px;
+            padding: 12px;
+            margin: 6px 0 15px 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
             box-sizing: border-box;
+            font-size: 15px;
+            background: #f8fafc;
+            transition: border-color 0.2s;
         }
         input:focus {
             outline: none;
-            border-color: #4f46e5;
-            background: rgba(30, 41, 59, 0.8);
+            border-color: var(--primary);
+            background: white;
         }
         button {
-            background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 15px 25px;
-            border-radius: 10px;
+            padding: 12px 20px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 15px;
             width: 100%;
-            font-size: 16px;
-            transition: opacity 0.2s;
+            transition: background 0.2s;
         }
         button:hover {
-            opacity: 0.9;
+            background: var(--primary-dark);
         }
         .result {
-            margin-top: 20px;
+            margin-top: 15px;
             padding: 15px;
-            background: rgba(79, 70, 229, 0.1);
-            border-radius: 10px;
-            font-weight: 600;
-            color: #a5b4fc;
-            text-align: center;
+            background: #eef2ff;
+            border-left: 4px solid var(--primary);
+            border-radius: 6px;
+            font-weight: bold;
+            color: #3730a3;
+            font-size: 15px;
         }
-
-        /* Footer Profesional */
+        /* Bagian Informasi Tambahan (About, Privacy, Contact) */
+        .info-section {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+        }
+        .info-section h2 {
+            font-size: 20px;
+            color: var(--text-main);
+            margin-top: 0;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+        .info-section p, .info-section li {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
         footer {
             text-align: center;
-            padding: 50px 20px;
-            color: #64748b;
+            padding: 40px 20px;
+            color: var(--text-muted);
             font-size: 14px;
-            border-top: 1px solid rgba(148, 163, 184, 0.1);
-            background: rgba(15, 23, 42, 0.3);
-        }
-
-        /* Responsive Fixes */
-        @media (max-width: 600px) {
-            h1 { font-size: 36px; }
-            .header { padding: 60px 20px 40px 20px; }
-            .container { margin: 30px auto; gap: 20px; }
-            .card { padding: 25px; }
+            background: #e2e8f0;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <h1>Tools<span>AI</span></h1>
-        <p class="subtitle">Kumpulan tools online gratis, praktis, dan profesional untuk kebutuhan harian Anda.</p>
-    </header>
+    <!-- Header / Hero Banner -->
+    <div class="hero">
+        <h1>ToolsAI 🚀</h1>
+        <p>Kumpulan tools online gratis, cepat, dan praktis untuk mempermudah perhitungan akademik serta kebutuhan harianmu.</p>
+    </div>
 
     <div class="container">
-        <!-- TOOL 1: Kalkulator IPK -->
+        <!-- TOOL 1: Kalkulator IPK Sederhana -->
         <div class="card">
-            <h3>📊 Kalkulator IPK</h3>
-            <p>Hitung estimasi Indeks Prestasi Kumulatif (IPK) semester Anda dengan cepat.</p>
+            <h3>📊 Kalkulator IPK Sederhana</h3>
             <label>Total SKS yang diambil:</label>
             <input type="number" id="sks" placeholder="Contoh: 20">
             <label>Total Bobot Nilai (Mutu):</label>
             <input type="number" id="mutu" placeholder="Contoh: 65 (jika IPK 3.25 x 20 SKS)">
-            <button onclick="hitungIPK()">Hitung IPK</button>
+            <button onclick="hitungIPK()">Hitung IPK Sekarang</button>
             <div class="result" id="hasilIPK">Hasil IPK akan muncul di sini</div>
         </div>
 
-        <!-- TOOL 2: Kalkulator Mean -->
+        <!-- TOOL 2: Kalkulator Statistik (Rata-rata / Mean) -->
         <div class="card">
             <h3>🧮 Kalkulator Rata-rata (Mean)</h3>
-            <p>Cari nilai rata-rata dari sekumpulan data angka secara instan.</p>
             <label>Masukkan angka (pisahkan dengan koma):</label>
             <input type="text" id="dataAngka" placeholder="Contoh: 80, 85, 90, 75">
             <button onclick="hitungStatistik()">Hitung Rata-rata</button>
             <div class="result" id="hasilStatistik">Hasil rata-rata akan muncul di sini</div>
         </div>
 
-        <!-- TOOL 3: Kalkulator Cicilan -->
+        <!-- TOOL 3: Kalkulator Simulasi Cicilan / Finansial -->
         <div class="card">
             <h3>💰 Kalkulator Cicilan Pinjaman</h3>
-            <p>Simulasi perhitungan cicilan bulanan untuk perencanaan keuangan Anda.</p>
             <label>Jumlah Pinjaman (Rp):</label>
             <input type="number" id="pinjaman" placeholder="Contoh: 5000000">
             <label>Bunga per Bulan (%):</label>
@@ -192,39 +185,71 @@
             <button onclick="hitungCicilan()">Hitung Cicilan</button>
             <div class="result" id="hasilCicilan">Estimasi cicilan per bulan akan muncul di sini</div>
         </div>
+
+        <!-- About Us -->
+        <div class="info-section" id="about">
+            <h2>ℹ️ Tentang Kami (About Us)</h2>
+            <p><strong>ToolsAI</strong> didirikan sebagai platform direktori utilitas online gratis yang dirancang untuk membantu pelajar, mahasiswa, dan masyarakat umum dalam menyelesaikan berbagai perhitungan instan secara praktis, cepat, tanpa perlu mengunduh aplikasi tambahan.</p>
+        </div>
+
+        <!-- Privacy Policy -->
+        <div class="info-section" id="privacy">
+            <h2>🔒 Kebijakan Privasi (Privacy Policy)</h2>
+            <p>Kami sangat menghargai privasi pengunjung:</p>
+            <ul>
+                <li>Semua proses perhitungan pada tools di website ini berjalan secara lokal di browser Anda; kami tidak menyimpan atau merekam data angka/input yang Anda masukkan.</li>
+                <li>Website ini menggunakan analitik atau jaringan iklan pihak ketiga di masa mendatang untuk mendukung operasional gratis situs.</li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="info-section" id="contact">
+            <h2>📞 Kontak Kami (Contact)</h2>
+            <p>Jika Anda memiliki saran, pertanyaan, atau menemukan kendala penggunaan tools di website ini, silakan hubungi kami melalui email resmi:</p>
+            <p><strong>Email:</strong> support@toolsai.online (atau ganti dengan email aktif Anda)</p>
+        </div>
     </div>
 
     <footer>
-        &copy; 2026 ToolsAI. Dibangun dengan teknologi web modern.
+        &copy; 2026 ToolsAI. Dibangun dengan HTML, CSS & JavaScript.
     </footer>
 
     <script>
-        // Logika Tool 1: IPK
         function hitungIPK() {
             let sks = parseFloat(document.getElementById('sks').value);
             let mutu = parseFloat(document.getElementById('mutu').value);
-            if (!sks || !mutu || sks === 0) { document.getElementById('hasilIPK').innerText = "Masukkan angka yang valid!"; return; }
+            if (!sks || !mutu || sks === 0) {
+                document.getElementById('hasilIPK').innerText = "Mohon masukkan angka SKS dan Mutu yang valid!";
+                return;
+            }
             let ipk = mutu / sks;
             document.getElementById('hasilIPK').innerText = "Estimasi IPK Anda: " + ipk.toFixed(2);
         }
 
-        // Logika Tool 2: Statistik Rata-rata
         function hitungStatistik() {
             let input = document.getElementById('dataAngka').value;
-            if (!input) { document.getElementById('hasilStatistik').innerText = "Masukkan data angka terlebih dahulu!"; return; }
+            if (!input) {
+                document.getElementById('hasilStatistik').innerText = "Masukkan data angka terlebih dahulu!";
+                return;
+            }
             let arr = input.split(',').map(item => parseFloat(item.trim()));
-            if (arr.some(isNaN)) { document.getElementById('hasilStatistik').innerText = "Format angka salah! Gunakan koma (,)."; return; }
+            if (arr.some(isNaN)) {
+                document.getElementById('hasilStatistik').innerText = "Format angka salah! Pastikan dipisahkan dengan tanda koma (,).";
+                return;
+            }
             let sum = arr.reduce((a, b) => a + b, 0);
             let mean = sum / arr.length;
             document.getElementById('hasilStatistik').innerText = "Nilai Rata-rata (Mean): " + mean.toFixed(2);
         }
 
-        // Logika Tool 3: Finansial Cicilan
         function hitungCicilan() {
             let p = parseFloat(document.getElementById('pinjaman').value);
             let b = parseFloat(document.getElementById('bunga').value) / 100;
             let t = parseInt(document.getElementById('tenor').value);
-            if (!p || isNaN(b) || !t) { document.getElementById('hasilCicilan').innerText = "Mohon isi semua kolom!"; return; }
+            if (!p || isNaN(b) || !t) {
+                document.getElementById('hasilCicilan').innerText = "Mohon isi semua kolom pinjaman dengan benar!";
+                return;
+            }
             let totalBunga = p * b * t;
             let totalBayar = p + totalBunga;
             let cicilanPerBulan = totalBayar / t;
